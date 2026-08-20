@@ -61,8 +61,8 @@ type ServerResponse struct {
 			} `json:"peak"`
 			PlayCount      int       `json:"playCount"`
 			PlaylistItemID string    `json:"playlistItemId"`
-			ReleaseDate    time.Time `json:"releaseDate"`
-			ReleaseYear    string    `json:"releaseYear"`
+			ReleaseDate    string    `json:"releaseDate"`
+			ReleaseYear    int       `json:"releaseYear"`
 			ServerID       string    `json:"serverId"`
 			ServerType     string    `json:"serverType"`
 			Size           int       `json:"size"`
