@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"encoding/json"
 	"log"
 	"strconv"
 
@@ -33,8 +32,8 @@ var rateCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalf("Failed to parse rating %d: %s", rating, err)
 		}
-		var response controls.ServerResponse
-		err = json.Unmarshal(websocket.GetServerMessage(), &response)
+		var response websocket.ServerResponse
+		err = websocket.GetServerMessage(&response)
 		if err != nil {
 			log.Fatal("Error unmarshal:", err)
 		}

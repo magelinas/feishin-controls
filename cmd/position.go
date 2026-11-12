@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"encoding/json"
 	"log"
 	"strconv"
 
@@ -34,8 +33,8 @@ var positionCmd = &cobra.Command{
 		}
 
 		if relativePos {
-			var response controls.ServerResponse
-			err := json.Unmarshal(websocket.GetServerMessage(), &response)
+			var response websocket.ServerResponse
+			err := websocket.GetServerMessage(&response)
 			if err != nil {
 				log.Fatal("Error unmarshal:", err)
 			}
