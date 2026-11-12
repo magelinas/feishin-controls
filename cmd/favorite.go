@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"encoding/json"
 	"log"
 
 	"github.com/marc-antoinegelinas/feishin-controls/internal/controls"
@@ -18,8 +17,8 @@ var favoriteCmd = &cobra.Command{
 	Short: "Toggle track favorite status",
 	Long:  "Toggle track favorite status between favorite or not",
 	Run: func(cmd *cobra.Command, args []string) {
-		var response controls.ServerResponse
-		err := json.Unmarshal(websocket.GetServerMessage(), &response)
+		var response websocket.ServerResponse
+		err := websocket.GetServerMessage(&response)
 		if err != nil {
 			log.Fatal("Error unmarshal:", err)
 		}
